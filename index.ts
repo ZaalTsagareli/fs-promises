@@ -85,21 +85,21 @@ class Exercise {
 }
 
 const doExerciseWithPromiseChain = () => {
-  Exercise.createFilePromise("test.txt")
+  Exercise.createFilePromise("test1.txt")
     .then(() => {
-      return Exercise.readFilePromise("test.txt");
+      return Exercise.readFilePromise("test1.txt");
     })
     .then((data) => {
       console.log(data);
-      return Exercise.appendFilePromise("test.txt");
+      return Exercise.appendFilePromise("test1.txt");
     })
 
     .then(() => {
-      return Exercise.readFilePromise("test.txt");
+      return Exercise.readFilePromise("test1.txt");
     })
     .then((data) => {
       console.log(data);
-      return Exercise.deleteFilePromise("test.txt");
+      return Exercise.deleteFilePromise("test1.txt");
     })
     .catch((err) => {
       console.log(err);
@@ -128,9 +128,7 @@ Exercise.way2("zaali.txt", (data) => {
   console.log(data, "meore");
 });
 
-// dont run doExerciseWithPromiseChain(); and doExerciseWithAsync(); same time.
-
-// doExerciseWithPromiseChain();
+doExerciseWithPromiseChain();
 doExerciseWithAsync();
 
 const promisedFunc = Exercise.promisify(fs.writeFile);

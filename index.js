@@ -140,20 +140,20 @@ var Exercise = /** @class */ (function () {
     return Exercise;
 }());
 var doExerciseWithPromiseChain = function () {
-    Exercise.createFilePromise("test.txt")
+    Exercise.createFilePromise("test1.txt")
         .then(function () {
-        return Exercise.readFilePromise("test.txt");
+        return Exercise.readFilePromise("test1.txt");
     })
         .then(function (data) {
         console.log(data);
-        return Exercise.appendFilePromise("test.txt");
+        return Exercise.appendFilePromise("test1.txt");
     })
         .then(function () {
-        return Exercise.readFilePromise("test.txt");
+        return Exercise.readFilePromise("test1.txt");
     })
         .then(function (data) {
         console.log(data);
-        return Exercise.deleteFilePromise("test.txt");
+        return Exercise.deleteFilePromise("test1.txt");
     })["catch"](function (err) {
         console.log(err);
     });
@@ -196,7 +196,7 @@ Exercise.way1("text.txt", function (data) {
 Exercise.way2("zaali.txt", function (data) {
     console.log(data, "meore");
 });
-// doExerciseWithPromiseChain();
+doExerciseWithPromiseChain();
 doExerciseWithAsync();
 var promisedFunc = Exercise.promisify(fs.writeFile);
 promisedFunc("myPromise.txt", "hello").then(function (data) {
